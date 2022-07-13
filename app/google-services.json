@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "254821044100",
+    "project_id": "pa-waterbot",
+    "storage_bucket": "pa-waterbot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254821044100:android:306c407d903803632d97d1",
+        "android_client_info": {
+          "package_name": "org.d3ifcool.waterbotapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254821044100-kdr7sm4tbdm11sekkcm3ef239ai7nlni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.d3ifcool.waterbotapp",
+            "certificate_hash": "989a7ba892c128602a310013fa8a940ab261a2f6"
+          }
+        },
+        {
+          "client_id": "254821044100-e3ephvmq7j1i46li59195nopashmmpd0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApFjsayOLn7DaJZHQuv7c5Q5v-aLZblFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254821044100-e3ephvmq7j1i46li59195nopashmmpd0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
