@@ -99,7 +99,7 @@ class ControlActivity : AppCompatActivity() {
         val m = cal.get(Calendar.MINUTE)
         timePicker.showDialog(h, m, object : TimePickerHelper.Callback {
             override fun onTimeSelected(hourOfDay: Int, minute: Int) {
-                val hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
+//                val hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
                 val minuteStr = if (minute < 10) "0${minute}" else "${minute}"
                 binding.editTextTimeOn.text = "${hourOfDay}:${minuteStr}"
 

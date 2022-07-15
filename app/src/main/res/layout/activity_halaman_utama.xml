@@ -116,12 +116,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingTop="30dp">-->
+
             <LinearLayout
-                android:layout_width="90dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:orientation="vertical"
-                android:paddingTop="30dp">
+                android:paddingTop="10dp">
+
 
                 <ImageView
                     android:id="@+id/bateryicon"
@@ -139,24 +146,18 @@
 
             </LinearLayout>
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                android:paddingTop="30dp">-->
+            <TextView
+                android:id="@+id/tv_volt"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="12.8V"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/tv_volt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="12.8V"
-                    android:textColor="@color/black"
-                    android:textSize="24sp" />
-            </LinearLayout>
+        </LinearLayout>
 
 
-<!--        </LinearLayout>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -240,6 +241,15 @@
 
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="18dp"
+            android:text="*Tegangan Baterai : \n >12.5 Aman \n < 12.5 Hapir habis \n < 12 Tidak bisa digunakan" />
 
 
     </RelativeLayout>
