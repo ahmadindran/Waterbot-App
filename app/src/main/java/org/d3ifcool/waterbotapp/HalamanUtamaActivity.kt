@@ -32,7 +32,7 @@ class HalamanUtamaActivity : AppCompatActivity() {
 
         binding.ivBathelp.setOnClickListener {
 
-            Toast.makeText(this, "*Tegangan Baterai : \\n >12.5 Aman \\n < 12.5 Hapir habis \\n < 12 Tidak bisa digunakan", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, ">12.5 Aman | < 12.5 Hapir habis | < 12 Tidak bisa digunakan", Toast.LENGTH_LONG).show()
         }
 
         if (user != null) {

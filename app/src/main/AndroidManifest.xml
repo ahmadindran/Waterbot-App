@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.d3ifcool.waterbotapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WaterbotApp">
         <activity
+            android:name=".DeviceSelect"
+            android:exported="true" />
+        <activity
             android:name=".ControlActivity"
             android:exported="true"
-            android:parentActivityName=".HalamanUtamaActivity"/>
+            android:parentActivityName=".HalamanUtamaActivity" />
         <activity
             android:name=".ProfileActivity"
             android:exported="true"
-            android:parentActivityName=".HalamanUtamaActivity"/>
+            android:parentActivityName=".HalamanUtamaActivity" />
         <activity
             android:name=".HalamanUtamaActivity"
             android:exported="true" />
