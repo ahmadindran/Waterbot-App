@@ -155,6 +155,15 @@
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
+            <ImageView
+                android:id="@+id/iv_bathelp"
+                android:layout_marginTop="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/help" />
+
+
         </LinearLayout>
 
 
@@ -241,15 +250,6 @@
 
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginBottom="18dp"
-            android:text="*Tegangan Baterai : \n >12.5 Aman \n < 12.5 Hapir habis \n < 12 Tidak bisa digunakan" />
 
 
     </RelativeLayout>
