@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="WaterPump"
+        android:text="Pompa Air"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Power Off"
+        android:text="Daya Mati"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Schedule"
+                    android:text="Penjadwalan"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
 
@@ -95,7 +95,7 @@
                     android:id="@+id/tv_time_on"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="ON"
+                    android:text="Nyala"
                     android:textColor="@color/black"
                     android:textSize="24dp" />
 
@@ -121,7 +121,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="OFF"
+                    android:text="Mati"
                     android:textColor="@color/black"
 
                     android:textSize="24dp" />
@@ -164,7 +164,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Humidity"
+                    android:text="Kelembapan"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
 
@@ -177,7 +177,7 @@
                     android:background="@android:color/transparent"
                     android:ems="10"
                     android:focusableInTouchMode="true"
-                    android:hint="Humidity Level"
+                    android:hint="Level kelembapan"
                     android:importantForAutofill="no"
                     android:inputType="number"
                     android:maxLength="2"
