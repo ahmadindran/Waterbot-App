@@ -30,6 +30,11 @@ class HalamanUtamaActivity : AppCompatActivity() {
         binding = ActivityHalamanUtamaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.ivBathelp.setOnClickListener {
+
+            Toast.makeText(this, "*Tegangan Baterai : \\n >12.5 Aman \\n < 12.5 Hapir habis \\n < 12 Tidak bisa digunakan", Toast.LENGTH_SHORT).show()
+        }
+
         if (user != null) {
             val iv_user = binding.ivUser
             Glide.with(this).load(user.photoUrl).into(iv_user)
@@ -82,6 +87,7 @@ class HalamanUtamaActivity : AppCompatActivity() {
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
 
         }
+
     }
 
     private fun goCtrlActivity() {
