@@ -127,7 +127,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:orientation="vertical"
-                android:paddingTop="10dp">
+                android:paddingTop="30dp">
 
 
                 <ImageView
