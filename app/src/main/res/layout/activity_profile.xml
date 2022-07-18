@@ -129,30 +129,30 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="4dp"
         android:text="innovillagehays@gmail.com"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintStart_toEndOf="@+id/mail" />
+        app:layout_constraintBottom_toBottomOf="@+id/mail"
+        app:layout_constraintStart_toStartOf="@+id/mail" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="4dp"
         android:text="081229098909"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
         app:layout_constraintStart_toEndOf="@+id/imageButton5" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="8dp"
         android:text="081229098909"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
         app:layout_constraintStart_toEndOf="@+id/imageButton8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

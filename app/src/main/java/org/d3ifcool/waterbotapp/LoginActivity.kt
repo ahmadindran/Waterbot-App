@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 SavedPreference.setEmail(this, account.email.toString())
                 SavedPreference.setUsername(this, account.displayName.toString())
-                val intent = Intent(this, DeviceSelect::class.java)
+                val intent = Intent(this, HalamanUtamaActivity::class.java)
                 startActivity(intent)
                 finish()
             }

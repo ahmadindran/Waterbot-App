@@ -58,9 +58,9 @@ import com.google.firebase.database.DatabaseReference
         database = FirebaseDatabase.getInstance().reference
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val nilaiHumidity = snapshot.child("Waterbot/Humidity").value!!.toString()
-                val nilaiVolt = snapshot.child("Waterbot/Volt").value!!.toString().toFloat()
-                val waktu = snapshot.child("Waterbot/Waktu").value!!.toString()
+                val nilaiHumidity = snapshot.child("Waterbot/1/Humidity").value!!.toString()
+                val nilaiVolt = snapshot.child("Waterbot/1/Volt").value!!.toString().toFloat()
+                val waktu = snapshot.child("Waterbot/1/Waktu").value!!.toString()
 
                 binding.tvHumidity.text = "${nilaiHumidity}%"
                 binding.tvVolt.text = "${nilaiVolt} V"
