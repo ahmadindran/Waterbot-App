@@ -47,13 +47,13 @@ import com.google.firebase.database.DatabaseReference
         binding.ivUser.setOnClickListener { goProfileActivity() }
         binding.control.setOnClickListener { goCtrlActivity() }
         binding.pwr1.setOnClickListener { setPower() }
-        binding.ivBathelp.setOnClickListener {
-            Toast.makeText(
-                this,
-                "*Tegangan Baterai : \\n >12.5 Aman \\n < 12.5 Hapir habis \\n < 12 Tidak bisa digunakan",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+//        binding.ivBathelp.setOnClickListener {
+//            Toast.makeText(
+//                this,
+//                "*Tegangan Baterai : \\n >12.5 Aman \\n < 12.5 Hapir habis \\n < 12 Tidak bisa digunakan",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
 
         database = FirebaseDatabase.getInstance().reference
         database.addValueEventListener(object : ValueEventListener {

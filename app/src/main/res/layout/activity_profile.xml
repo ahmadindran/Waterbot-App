@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5"
@@ -89,9 +89,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mail"
         app:srcCompat="@drawable/ic_baseline_call_24" />
 
     <ImageButton
@@ -99,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:srcCompat="@drawable/ic_baseline_sms_24" />
@@ -129,11 +131,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="12dp"
         android:text="innovillagehays@gmail.com"
         app:layout_constraintBottom_toBottomOf="@+id/mail"
         app:layout_constraintStart_toStartOf="@+id/mail" />
+        app:layout_constraintBottom_toBottomOf="@+id/mail"
+        app:layout_constraintStart_toEndOf="@+id/mail"
+        app:layout_constraintTop_toTopOf="@+id/mail" />
 
     <TextView
         android:id="@+id/textView8"
@@ -142,6 +147,9 @@
         android:layout_marginStart="12dp"
         android:layout_marginBottom="4dp"
         android:text="081229098909"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toTopOf="@+id/imageButton5" />
         app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
         app:layout_constraintStart_toEndOf="@+id/imageButton5" />
 
@@ -154,5 +162,8 @@
         android:text="081229098909"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
         app:layout_constraintStart_toEndOf="@+id/imageButton8" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
+        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintTop_toTopOf="@+id/imageButton8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

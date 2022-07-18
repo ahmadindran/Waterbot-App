@@ -4,16 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_control.xml" value="0.20572916666666666" />
-        <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_halaman_utama.xml" value="0.20572916666666666" />
+        <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_device_select.xml" value="0.184375" />
+        <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_halaman_utama.xml" value="0.5" />
         <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_login.xml" value="0.20572916666666666" />
         <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_main.xml" value="0.20572916666666666" />
-        <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_profile.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_control.xml" value="0.6" />
-        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_device_select.xml" value="0.264" />
-        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_halaman_utama.xml" value="0.264" />
-        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_login.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_profile.xml" value="0.5131375579598145" />
+        <entry key="..\:/Kuliah/PA/WaterBot/WaterbotApp/app/src/main/res/layout/activity_profile.xml" value="0.67" />
+        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_control.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/Acer/Desktop/Waterbot-App/app/src/main/res/layout/activity_halaman_utama.xml" value="0.4" />
       </map>
     </option>
   </component>
@@ -22,12 +19,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.264" />
-      </ProjectState>
-    </option>
   </component>
 </project>

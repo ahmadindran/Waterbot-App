@@ -23,20 +23,20 @@ class DeviceSelect : AppCompatActivity() {
 
         val idAlat = binding.etId.toString()
 
-        database = FirebaseDatabase.getInstance().reference
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                id = snapshot.child("Waterbot").child(idAlat).toString()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.i(ContentValues.TAG, "Failed to read value.", error.toException());
-            }
-        })
-
-        binding.btnLanjut.setOnClickListener {
-            cekID()
-        }
+//        database = FirebaseDatabase.getInstance().reference
+//        database.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                id = snapshot.child("Waterbot").child(idAlat).toString()
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.i(ContentValues.TAG, "Failed to read value.", error.toException());
+//            }
+//        })
+//
+//        binding.btnLanjut.setOnClickListener {
+//            cekID()
+//        }
 
     }
 
