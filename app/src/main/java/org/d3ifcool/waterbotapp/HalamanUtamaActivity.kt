@@ -64,7 +64,7 @@ import com.google.firebase.database.DatabaseReference
 
                 binding.tvHumidity.text = "${nilaiHumidity}%"
                 binding.tvVolt.text = "${nilaiVolt} V"
-                binding.lastUpdate.text = "Terakhir diperbarui ${waktu}"
+//                binding.lastUpdate.text = "Terakhir diperbarui ${waktu}"
 
                 when {
                     nilaiVolt < 12.0 -> {

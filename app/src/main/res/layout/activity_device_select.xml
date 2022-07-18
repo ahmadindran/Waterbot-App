@@ -28,7 +28,7 @@
         android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Id"
+        android:hint="Id"
         app:layout_constraintBottom_toTopOf="@+id/btn_lanjut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
