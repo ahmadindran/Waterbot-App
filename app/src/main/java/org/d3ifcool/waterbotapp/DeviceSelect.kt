@@ -21,7 +21,7 @@ class DeviceSelect : AppCompatActivity() {
         binding = ActivityDeviceSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val idAlat = binding.etId.toString()
+//        val idAlat = binding.etId.toString()
 
 //        database = FirebaseDatabase.getInstance().reference
 //        database.addValueEventListener(object : ValueEventListener {
@@ -34,9 +34,9 @@ class DeviceSelect : AppCompatActivity() {
 //            }
 //        })
 //
-//        binding.btnLanjut.setOnClickListener {
-//            cekID()
-//        }
+        binding.btnLanjut.setOnClickListener {
+            cekID()
+        }
 
     }
 
