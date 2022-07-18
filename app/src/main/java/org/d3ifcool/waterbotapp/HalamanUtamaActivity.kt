@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DatabaseReference
 
 
-class HalamanUtamaActivity : AppCompatActivity() {
+ class HalamanUtamaActivity : AppCompatActivity() {
 
     val user = Firebase.auth.currentUser
 

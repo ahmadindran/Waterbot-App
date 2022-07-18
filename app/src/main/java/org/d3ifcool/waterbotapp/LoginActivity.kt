@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (GoogleSignIn.getLastSignedInAccount(this) != null) {
-            startActivity(Intent(this, HalamanUtamaActivity::class.java))
+            startActivity(Intent(this, DeviceSelect::class.java))
             finish()
         }
     }
