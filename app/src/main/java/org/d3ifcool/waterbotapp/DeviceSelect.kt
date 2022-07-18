@@ -21,7 +21,7 @@ class DeviceSelect : AppCompatActivity() {
         binding = ActivityDeviceSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val idAlat = binding.etId.toString()
+         id = binding.etId.toString()
 
 //        database = FirebaseDatabase.getInstance().reference
 //        database.addValueEventListener(object : ValueEventListener {
@@ -35,7 +35,13 @@ class DeviceSelect : AppCompatActivity() {
 //        })
 //
         binding.btnLanjut.setOnClickListener {
-            cekID()
+            if ( id!="1"){
+                Toast.makeText(this, "ID tidak ditemukan", Toast.LENGTH_SHORT).show()
+
+            }else if (id=="1"){
+                cekID()
+            }
+
         }
 
     }
