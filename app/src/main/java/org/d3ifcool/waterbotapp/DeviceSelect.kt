@@ -19,7 +19,7 @@ class DeviceSelect : AppCompatActivity() {
     private lateinit var binding: ActivityDeviceSelectBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_device_select)
+        setContentView(binding.root)
         val idAlat = binding.etId.toString()
         database = FirebaseDatabase.getInstance().reference
         database.addValueEventListener(object : ValueEventListener {
