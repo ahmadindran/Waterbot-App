@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "254821044100",
+    "firebase_url": "https://pa-waterbot-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "pa-waterbot",
     "storage_bucket": "pa-waterbot.appspot.com"
   },

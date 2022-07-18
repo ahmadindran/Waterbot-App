@@ -2,9 +2,11 @@ package org.d3ifcool.waterbotapp
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -30,11 +32,6 @@ class HalamanUtamaActivity : AppCompatActivity() {
         binding = ActivityHalamanUtamaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.ivBathelp.setOnClickListener {
-
-            Toast.makeText(this, ">12.5 Aman | < 12.5 Hapir habis | < 12 Tidak bisa digunakan", Toast.LENGTH_LONG).show()
-        }
-
         if (user != null) {
             val iv_user = binding.ivUser
             Glide.with(this).load(user.photoUrl).into(iv_user)
@@ -48,45 +45,57 @@ class HalamanUtamaActivity : AppCompatActivity() {
         binding.ivUser.setOnClickListener { goProfileActivity() }
         binding.control.setOnClickListener { goCtrlActivity() }
         binding.pwr1.setOnClickListener { setPower() }
+        binding.ivBathelp.setOnClickListener {
+            Toast.makeText(
+                this,
+                "*Tegangan Baterai : \\n >12.5 Aman \\n < 12.5 Hapir habis \\n < 12 Tidak bisa digunakan",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
-//        database = FirebaseDatabase.getInstance().reference
-//        database.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                val nilaiHumidity = snapshot.child("Waterbot/Humidity").value!!.toString().toFloat()
-//                val nilaiVolt = snapshot.child("Waterbot/Volt").value!!.toString().toFloat()
-//                binding.tvHumidity.text = "${nilaiHumidity}"
-//                binding.tvVolt.text = "${nilaiVolt}"
-//                Log.d(TAG, "Value HUM:" + nilaiHumidity)
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        })
+        database = FirebaseDatabase.getInstance().reference
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val nilaiHumidity = snapshot.child("Waterbot/Humidity").value!!.toString()
+                val nilaiVolt = snapshot.child("Waterbot/Volt").value!!.toString().toFloat()
+                val waktu = snapshot.child("Waterbot/Waktu").value!!.toString()
 
+                binding.tvHumidity.text = "${nilaiHumidity}%"
+                binding.tvVolt.text = "${nilaiVolt} V"
+                binding.lastUpdate.text = waktu
 
-        database = FirebaseDatabase.getInstance().getReference("Waterbot")
-        database.get().addOnSuccessListener {
+                when {
+                    nilaiVolt < 12.0 -> {
+                        binding.infoBatt.text = getString(R.string.tidak_bisa_digunakan)
+                        binding.infoBatt.setTextColor(Color.parseColor("#FF9494"))
+                        binding.infoBatt.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14F)
+                    }
+                    nilaiVolt < 12.5 -> {
+                        binding.infoBatt.text = getString(R.string.hampir_habis)
+                        binding.infoBatt.setTextColor(Color.parseColor("#eed202"))
+                        binding.infoBatt.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16F)
+                    }
+                    else -> {
+                        binding.infoBatt.text = getString(R.string.aman)
+                        binding.infoBatt.setTextColor(Color.parseColor("#4BB543"))
+                        binding.infoBatt.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16F)
+                    }
+                }
 
-            if (it.exists()) {
+                val relay = snapshot.child("Waterbot/Relay").value!!.toString()
+                if (relay == "off") {
+                    binding.pwr1.setImageResource(R.drawable.btn_off)
+                } else {
+                    binding.pwr1.setImageResource(R.drawable.btn_on)
+                }
 
-                val volt = it.child("Volt").value
-                val humidity = it.child("Humidity").value
-                val auto = it.child("Auto").value
-                val relay = it.child("Relay").value
-                Toast.makeText(this, "Successfuly Read", Toast.LENGTH_SHORT).show()
-                binding.tvHumidity.text = (humidity.toString())
-                binding.tvVolt.text = (volt.toString())
-
-            } else {
-                Toast.makeText(this, "Data Doesn't Exist", Toast.LENGTH_SHORT).show()
+                Log.i(TAG, "Value HUM:" + nilaiHumidity)
             }
 
-        }.addOnFailureListener {
-
-            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
-
-        }
+            override fun onCancelled(error: DatabaseError) {
+                Log.i(TAG, "Failed to read value.", error.toException());
+            }
+        })
 
     }
 
@@ -103,23 +112,13 @@ class HalamanUtamaActivity : AppCompatActivity() {
 
     private fun setPower() {
         if (status % 2 == 0) {
-            FirebaseDatabase.getInstance().reference.child("Waterbot").child("Relay").setValue("On")
-            binding.pwr1.setImageResource(R.drawable.btn_on)
-            binding.status.text = "Power On"
+            FirebaseDatabase.getInstance().reference.child("Waterbot").child("Relay").setValue("on")
             status++
         } else {
             FirebaseDatabase.getInstance().reference.child("Waterbot").child("Relay")
-                .setValue("Off")
-            binding.pwr1.setImageResource(R.drawable.btn_off)
-            binding.status.text = "Power Off"
+                .setValue("off")
             status++
         }
     }
-
-    private fun readData(data: String) {
-
-
-    }
-
 
 }

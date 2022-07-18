@@ -117,10 +117,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                android:paddingTop="30dp">-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:paddingTop="30dp">-->
 
             <LinearLayout
                 android:layout_width="70dp"
@@ -146,27 +146,49 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_volt"
-                android:layout_width="73dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="12.8V"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"
+                android:paddingTop="30dp">
+
+                <TextView
+                    android:id="@+id/tv_volt"
+                    android:layout_width="73dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="12.8V"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/info_batt"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|center_vertical"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Hampir Habis" />
+
+            </LinearLayout>
+
 
             <ImageView
                 android:id="@+id/iv_bathelp"
-                android:layout_marginTop="10dp"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/help" />
 
 
         </LinearLayout>
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -253,5 +275,14 @@
 
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/last_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="180dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,4 +11,5 @@
     <color name="contol_blue">#7DB0C6</color>
     <color name="contol_green">#D9F3C6</color>
     <color name="redButton">#E63946</color>
+    <color name="red">#FF0000</color>
 </resources>

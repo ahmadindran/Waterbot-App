@@ -10,10 +10,9 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
 import org.d3ifcool.waterbotapp.databinding.ActivityControlBinding
 import java.util.*
-import com.google.firebase.database.FirebaseDatabase
 
 
 class ControlActivity : AppCompatActivity() {
@@ -26,13 +25,12 @@ class ControlActivity : AppCompatActivity() {
         private var REMIND_MINUTES_OFF = 0
     }
 
-    private lateinit var database: DatabaseReference
-
     lateinit var timePicker: TimePickerHelper
 
     var status = 0
 
     private lateinit var binding: ActivityControlBinding
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,18 +43,30 @@ class ControlActivity : AppCompatActivity() {
         //set back button
         actionbar.setDisplayHomeAsUpEnabled(true)
 
-        // Write a message to the database
-        // Write a message to the database
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("Waterbot")
+        database = FirebaseDatabase.getInstance().reference
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val relay = snapshot.child("Waterbot/Relay").value!!.toString()
+                if (relay == "off") {
+                    binding.btnPower.setImageResource(R.drawable.btn_off)
+                    binding.status.text = getString(R.string.power_off)
 
+                } else {
+                    binding.btnPower.setImageResource(R.drawable.btn_on)
+                    binding.status.text = getString(R.string.power_on)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
         binding.btnPower.setOnClickListener {
             setPower()
-            myRef.setValue("Hello, World!")
         }
 
-        timePicker = TimePickerHelper(this, false, false)
+        timePicker = TimePickerHelper(this, true, false)
 
         binding.btnSchedule.setOnCheckedChangeListener { compoundButton, isChecked ->
             if (isChecked) {
@@ -75,9 +85,11 @@ class ControlActivity : AppCompatActivity() {
         binding.btnHumidity.setOnCheckedChangeListener { compoundButton, isChecked ->
             if (isChecked) {
                 setHumidity()
-                Toast.makeText(this, "Humidity Control ON", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.kontrol_lembab_on), Toast.LENGTH_SHORT)
+                    .show()
             } else {
-                Toast.makeText(this, "Humidity Control OFF", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.kontrol_lembab_off), Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -86,7 +98,6 @@ class ControlActivity : AppCompatActivity() {
         val hum = binding.etHumidity.text.toString()
         FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue(hum)
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
@@ -99,43 +110,14 @@ class ControlActivity : AppCompatActivity() {
         val m = cal.get(Calendar.MINUTE)
         timePicker.showDialog(h, m, object : TimePickerHelper.Callback {
             override fun onTimeSelected(hourOfDay: Int, minute: Int) {
-//                val hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
+                val hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
                 val minuteStr = if (minute < 10) "0${minute}" else "${minute}"
                 binding.editTextTimeOn.text = "${hourOfDay}:${minuteStr}"
 
                 REMIND_HOUR = hourOfDay
                 REMIND_MINUTES = minute
-
             }
         })
-
-
-    }
-
-    private fun setOn() {
-
-        val calendar = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, REMIND_HOUR)
-            set(Calendar.MINUTE, REMIND_MINUTES)
-            set(Calendar.SECOND, 0)
-        }
-
-        if (calendar.time <= Calendar.getInstance().time) {
-            FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("On")
-        }
-    }
-
-    private fun setOff() {
-
-        val calendar = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, REMIND_HOUR_OFF)
-            set(Calendar.MINUTE, REMIND_MINUTES_OFF)
-            set(Calendar.SECOND, 0)
-        }
-
-        if (calendar.time <= Calendar.getInstance().time) {
-            FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("Off")
-        }
     }
 
     private fun showTimePickerDialog2() {
@@ -154,14 +136,38 @@ class ControlActivity : AppCompatActivity() {
         })
     }
 
+    private fun setOn() {
+        FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("on")
+        val calendar = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, REMIND_HOUR)
+            set(Calendar.MINUTE, REMIND_MINUTES)
+            set(Calendar.SECOND, 0)
+        }
+
+        if (calendar.time <= Calendar.getInstance().time) {
+            FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("on")
+        }
+    }
+
+    private fun setOff() {
+        FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("off")
+        val calendar = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, REMIND_HOUR_OFF)
+            set(Calendar.MINUTE, REMIND_MINUTES_OFF)
+            set(Calendar.SECOND, 0)
+        }
+
+        if (calendar.time <= Calendar.getInstance().time) {
+            FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("off")
+        }
+    }
+
     private fun setPower() {
         if (status % 2 == 0) {
-            binding.btnPower.setImageResource(R.drawable.btn_on)
-            binding.status.text = "Power On"
+            FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("on")
             status++
         } else {
-            binding.btnPower.setImageResource(R.drawable.btn_off)
-            binding.status.text = "Power Off"
+            FirebaseDatabase.getInstance().reference.child("Waterbot/Relay").setValue("off")
             status++
         }
     }

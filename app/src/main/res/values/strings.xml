@@ -5,5 +5,11 @@
     <string name="email">ekasaputra123@gmail.com</string>
     <string name="contact_us">Hubungi kami</string>
     <string name="welcome_x">Welcome, %1$s</string>
-
+    <string name="tidak_bisa_digunakan">Tidak bisa digunakan</string>
+    <string name="hampir_habis">Hampir habis</string>
+    <string name="aman">Aman</string>
+    <string name="power_on">Daya Hidup</string>
+    <string name="power_off">Daya Mati</string>
+    <string name="kontrol_lembab_on">Kontrol Kelembaban Hidup</string>
+    <string name="kontrol_lembab_off">Kontrol Kelembaban Mati</string>
 </resources>
