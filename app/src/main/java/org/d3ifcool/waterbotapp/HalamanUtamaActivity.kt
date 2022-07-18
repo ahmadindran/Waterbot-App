@@ -32,6 +32,8 @@ import com.google.firebase.database.DatabaseReference
         binding = ActivityHalamanUtamaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Log.i("HalamanUtama", "Membuka halaman utama")
+
         if (user != null) {
             val iv_user = binding.ivUser
             Glide.with(this).load(user.photoUrl).into(iv_user)
@@ -62,7 +64,7 @@ import com.google.firebase.database.DatabaseReference
 
                 binding.tvHumidity.text = "${nilaiHumidity}%"
                 binding.tvVolt.text = "${nilaiVolt} V"
-                binding.lastUpdate.text = "Terakhir diupdate ${waktu}"
+                binding.lastUpdate.text = "Terakhir diperbarui ${waktu}"
 
                 when {
                     nilaiVolt < 12.0 -> {
@@ -89,32 +91,35 @@ import com.google.firebase.database.DatabaseReference
                     binding.pwr1.setImageResource(R.drawable.btn_on)
                 }
 
-                Log.i(TAG, "Value HUM:" + nilaiHumidity)
+                Log.i("HalamanUtama", "Mengambil data")
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.i(TAG, "Failed to read value.", error.toException());
+                Log.e("HalamanUtama", "Failed to read value.", error.toException());
             }
         })
 
     }
 
     private fun goCtrlActivity() {
+        Log.i("HalamanUtama", "Membuka control")
         val intent = Intent(this, ControlActivity::class.java)
         startActivity(intent)
-
     }
 
     private fun goProfileActivity() {
+        Log.i("HalamanUtama", "Membuka profile")
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
     }
 
     private fun setPower() {
         if (status % 2 == 0) {
+            Log.i("HalamanUtama", "Menyalakan daya")
             FirebaseDatabase.getInstance().reference.child("Waterbot").child("Relay").setValue("on")
             status++
         } else {
+            Log.i("HalamanUtama", "Mematikan daya")
             FirebaseDatabase.getInstance().reference.child("Waterbot").child("Relay")
                 .setValue("off")
             status++

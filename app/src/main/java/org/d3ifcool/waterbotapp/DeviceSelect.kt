@@ -14,13 +14,18 @@ import org.d3ifcool.waterbotapp.databinding.ActivityDeviceSelectBinding
 
 
 class DeviceSelect : AppCompatActivity() {
-    var id=""
+    var id = ""
+
     private lateinit var database: DatabaseReference
     private lateinit var binding: ActivityDeviceSelectBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityDeviceSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val idAlat = binding.etId.toString()
+
         database = FirebaseDatabase.getInstance().reference
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -32,7 +37,7 @@ class DeviceSelect : AppCompatActivity() {
             }
         })
 
-        binding.btnLanjut.setOnClickListener{
+        binding.btnLanjut.setOnClickListener {
             cekID()
         }
 
